@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= user.name %> | QuizQuest
+    </title>
+    <style>
+        body {
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 40px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 0px 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            border-radius: 15px;
+            color: white;
+            margin: 0px 15px 0px 0px;
+            font-size: 16px;
+            padding: 5px 10px;
+            background-color: rgb(249, 187, 73);
+
+        }
+
+        span {
+            color: rgb(249, 187, 73);
+        }
+
+        nav a:hover {
+            background-color: rgb(244, 165, 16);
+        }
+
+        .container {
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .user {
+            display: block;
+            justify-content: center;
+        }
+
+        h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 7px;
+        }
+
+        section {
+            margin: 20px 0px 0px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>QuizQuest</h1>
+        <nav>
+            <a href="#registered-exams">Registered Exams</a>
+            <a href="#open-exams">Open Exams</a>
+            <a href="#upcoming-exams">Upcoming Exams</a>
+            <a href="#Attended-exams">Attended Exams</a>
+            <a href="#past-exams">Past Exams</a>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="user">
+            <h1>Welcome <span>
+                    <%= user.name %>
+                        !!
+                </span> </h1>
+        </div>
+        <section id="registered-exams">
+            <h2 ">Registered Exams</h2>
+            <label for=" Jee-mains2025">Jee-mains2025</label>
+                <a href="http://localhost:3000/instruction?examTitle=Jee-mains2025"><button>Start Test</button></a>
+        </section>
+        <section id="open-exams">
+            <h2>Open Exams</h2>
+            Information about open exams...
+
+            <!-- Add content for current exams here -->
+        </section>
+        <section id="upcoming-exams">
+            <h2>Upcoming Exams</h2>
+            Information about upcoming exams...
+
+            <!-- Add content for upcoming exams here -->
+        </section>
+        <section id="Attended-exams">
+            <h2>Attended Exams</h2>
+            Information about Attended exams...
+        </section>
+        <section id="Past-exams">
+            <h2>Past Exams</h2>
+            Information about Past exams...
+        </section>
+    </div>
+</body>
+
+</html>

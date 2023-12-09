@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= user.name %>(Instructor) | QuizQuest
+    </title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    
+}
+.main{
+    margin: 100px 0px 20px 0px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+span{
+    color: rgb(249, 187, 73);
+}
+.top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 100px;
+}
+.p-left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    border: 1px solid rgb(249, 187, 73);
+    background-color: rgb(249, 187, 73);
+    color: white;
+    font-size: 20px;
+    padding: 5px 30px;
+    margin: 20px 0px;
+    border-radius: 20px;
+}
+
+</style>
+<body>
+        <div class="top">
+            <h1>QuizQuest</h1> 
+            <a href="/updatedetails">Profile</a>
+        </div>
+        <div class="main">
+            <h1>Welcome <span> <%= user.name %></span></h1>
+            <p>As an Instructor can create you own exam, schedule as per your choice.</p>
+        </div>
+        <div class="p-left">
+            <a href="/createExam">Create Exam</a>
+            <a href="/SeepostExam">Posted Exam</a>
+        </div>
+</body>
+
+</html>

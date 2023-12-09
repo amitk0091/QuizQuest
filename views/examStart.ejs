@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exam Questions</title>
+</head>
+<style>
+    /* Reset default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #2186c8;
+    }
+
+    #DOMContentLoaded {
+        position: absolute;
+        margin: 40px;
+        bottom: 0px;
+        right: 0px;
+        width: 200px;
+        height: 200px;
+    }
+
+    #vid {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<body>
+    <h1>
+        <%= examTitle %>
+    </h1>
+    <form action="/submitExam" method="post">
+        <% for (let i=0; i < questions.length; i++) { %>
+            <h2>
+                <%= questions[i] %>
+            </h2>
+            <% for (let j=i * 4; j < i * 4 + 4; j++) { %>
+                <input type="radio" name="correctOption<%= i+1 %>" value="<%= j%4+1 %>">
+                <%= options[j] %>
+                    <br>
+                    <% } %>
+                        <% } %>
+                            <button type="submit">Submit</button>
+    </form>
+    <div id="DOMContentLoaded">
+        <div>
+            <video id="vid"></video>
+        </div>
+        <br />
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let but = document.getElementById("but");
+            let video = document.getElementById("vid");
+            let mediaDevices = navigator.mediaDevices;
+            vid.muted = true;
+
+            // Accessing the user camera and video.
+            mediaDevices
+                .getUserMedia({
+                    video: true,
+                    audio: true,
+                })
+                .then((stream) => {
+
+                    // Changing the source of video to current stream.
+                    video.srcObject = stream;
+                    video.addEventListener("loadedmetadata", () => {
+                        video.play();
+                    });
+                })
+                .catch(alert);
+        });
+    </script>
+</body>
+
+</html>

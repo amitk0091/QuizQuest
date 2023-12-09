@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= examTitle %> | Instructions
+    </title>
+</head>
+<style>
+    /* Style the body */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    /* Style the title heading */
+    h1 {
+        text-align: center;
+        color: black;
+        padding: 10px;
+    }
+
+    /* Style the container for instructions */
+    .instruct {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        margin: 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style the paragraphs within the instructions */
+    .instruct p {
+        line-height: 1.6;
+    }
+
+    span {
+        color: rgb(249, 187, 73);
+    }
+
+    button a{
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Style the button */
+    #btn {
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+        background-color: rgb(249, 187, 73);
+        color: #fff;
+        border: none;
+        font-size: 17px;
+        padding: 10px;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    #btn:hover {
+        background-color: rgb(248, 171, 29);
+    }
+</style>
+
+<body>
+    <h1> Instructions | <span>
+            <%= examTitle %>
+        </span>
+    </h1>
+    <div class="instruct">
+        <pre>
+            Before you begin your exam, it's essential to follow these instructions carefully to ensure a fair and
+            smooth testing experience:
+
+            1. **Arrival:** Arrive at the exam location well in advance. Ensure you have your student ID or any other
+            required identification.
+
+            2. **Materials:** Bring necessary materials only, such as pencils, pens, an eraser, and an approved
+            calculator (if allowed).
+
+            3. **Electronic Devices:** Power off and stow away all electronic devices, including phones, smartwatches,
+            and tablets. These items should not be accessible during the exam.
+
+            4. **Seating:** Sit at your assigned seat. Maintain a minimum distance from other students as instructed to
+            prevent any possible cheating.
+
+            5. **Exam Booklet:** Once seated, you'll receive your exam booklet and answer sheet. Check for any missing
+            or misprinted pages.
+
+            6. **Time Management:** Read the instructions and questions carefully. Note the total time for the exam and
+            allocate your time wisely for each question.
+
+            7. **Marking:** Use a pencil to mark your answers on the answer sheet clearly. Ensure that the question
+            number and corresponding answer align correctly.
+
+            Follow these instructions, and you'll be on your way to a successful MCQ exam. Good luck!
+        </pre>
+    </div>
+    <button id="btn" type="submit"><a href="/startTest?examTitle=<%= examTitle %>">Start Test</a></button>
+    <script>
+        // function fun() {
+        //     let url = `http://localhost:3000/startTest?examTitle=<%= examTitle %>`;
+        //     console.log(url);
+        //     window.location.href = url;
+        // }
+    </script>
+</body>
+
+</html>
