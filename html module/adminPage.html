@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Style tables for displaying user and instructor data */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Add more styling as needed for data display */
+
+</style>
+<body>
+    <header>
+        <h1>Welcome, Admin</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#instructors">Instructors</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="users">
+            <h2>Users</h2>
+            <!-- Display user data here -->
+        </section>
+        <section id="instructors">
+            <h2>Instructors</h2>
+            <!-- Display instructor data here -->
+        </section>
+    </main>
+</body>
+</html>

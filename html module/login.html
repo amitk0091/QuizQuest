@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        /* background-color: #f4f4f4; */
+        background: linear-gradient(to right, #000428, #004e92); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .cnt1 {
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    #radio{
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        justify-content: center;
+    }
+</style>
+<body>
+    <div class="cnt1">
+        <h1>Login Form</h1>
+        <form id="form">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password" required><br><br>
+            <label for="role">Choose Role:</label>
+             <div id="radio">
+                 <input type="radio" name="role" id="instructor" value="instructor">
+                 <label for="instructor">Instructor</label>
+                 <input type="radio" name="role" id="admin" value="admin">
+                 <label for="instructor">admin</label>
+                 <input type="radio" name="role" id="student" value="student">
+                 <label for="student">Student</label>
+             </div>
+            <button type="submit" id="submitBtn">Login</button>
+        </form>
+        <p>Don't have an account? <span><a href="/signup">Sign up</a></span></p>
+    </div>
+    <script>
+        const formElement = document.querySelector("form");
+        formElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const url = 'http://localhost:3000/authuser';
+            const obj = {
+                'email': formElement.email.value,
+                'password': formElement.password.value,
+                'role': formElement.role.value
+            }
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('hi');
+                    console.log('Response from the server:', data);
+                    if(data.token){
+                        localStorage.setItem('token',data.token);
+                        window.location.href = '/home?token=' + data.token;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+        });
+    </script>
+</body>
+
+</html>
